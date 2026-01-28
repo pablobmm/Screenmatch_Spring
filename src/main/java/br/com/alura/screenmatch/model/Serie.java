@@ -1,8 +1,7 @@
 package br.com.alura.screenmatch.model;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
+import br.com.alura.screenmatch.service.traducao.ConsultaMyMemory;
 
-import java.util.Optional;
 import java.util.OptionalDouble;
 
 public class Serie {
@@ -20,7 +19,7 @@ public class Serie {
         this.avaliacao = OptionalDouble.of(Double.valueOf(dadosSerie.avaliacao())).orElse(0);
         this.genero = Categoria.fromString(dadosSerie.genero().split(",")[0].trim());
         this.atores = dadosSerie.atores();
-        this.sinopse = dadosSerie.sinopse();
+        this.sinopse = ConsultaMyMemory.obterTraducao(dadosSerie.sinopse());
         this.poster = dadosSerie.poster();
     }
 
