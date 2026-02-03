@@ -21,7 +21,7 @@ public class Serie {
     private String sinopse;
     private String atores;
     private String poster;
-    @Transient
+    @OneToMany(mappedBy = "serie")
     private List<Episodio>episodios = new ArrayList<>();
 
     public Serie(){}
