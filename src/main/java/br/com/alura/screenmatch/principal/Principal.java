@@ -83,8 +83,10 @@ public class Principal {
          leitura.nextLine();
         System.out.println("Qual a nota mínima a série precisa ter?");
         var notaAvaliacao = leitura.nextDouble();
-        List<Serie> seriesTemporadasAvaliacao = repositorio.findByTotalTemporadasLessThanEqualAndAvaliacaoGreaterThanEqual(totalTemporadas,notaAvaliacao);
-        seriesTemporadasAvaliacao.forEach(System.out::println);
+        List<Serie> seriesTemporadasAvaliacao =
+                repositorio.seriesPorTemporadaEAvaliacao(totalTemporadas,notaAvaliacao);
+        seriesTemporadasAvaliacao.forEach(s ->
+                System.out.println(s.getTitulo() + " - Avaliação: " + s.getAvaliacao()));
     }
 
     private void buscarSeriesPorCategoria() {
