@@ -113,7 +113,7 @@ public class Principal {
                                     "- Episodio: %s - %s - " +
                                     "Avaliação: %s\n",
                             e.getSerie().getTitulo(), e.getTemporada(),
-                            e.getNumero(), e.getTitulo(), e.getAvaliacao()));
+                            e.getNumeroEpisodio(), e.getTitulo(), e.getAvaliacao()));
         }
     }
 
@@ -123,7 +123,7 @@ public class Principal {
         List<Episodio> episodiosEncontrados = repositorio.episodioPorTrecho(trechoEpisodio);
         episodiosEncontrados.forEach(e ->
                 System.out.printf("Título: %s Temporada: %s - Episodio: %s - %s\n",
-                        e.getSerie().getTitulo(), e.getTemporada(), e.getNumero(), e.getTitulo()));
+                        e.getSerie().getTitulo(), e.getTemporada(), e.getNumeroEpisodio(), e.getTitulo()));
     }
 
     private void buscarSeriesPorTotalTemporadasAvaliacao() {

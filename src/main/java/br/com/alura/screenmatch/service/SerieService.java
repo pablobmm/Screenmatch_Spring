@@ -33,7 +33,7 @@ public class SerieService {
     }
 
     public List<SerieDTO> obterLancamento() {
-        return converteDados(repositorio.encontrarEpisodiosMaisRecentes());
+        return converteDados(repositorio.lancamentosMaisRecentes());
     }
 
     public SerieDTO obterPorId(Long id) {
@@ -57,5 +57,13 @@ public class SerieService {
                     .collect(Collectors.toList());
         }
         return null;
+    }
+
+    public List<EpisodioDTO> obterTemporadasPorNumero(Long id, Long numero) {
+        return repositorio.obterEpisodiosPorTemporada(id,numero)
+                .stream().map(e->
+                        new EpisodioDTO(e.getTemporada(),
+                                e.getNumeroEpisodio(), e.getTitulo()))
+                .collect(Collectors.toList());
     }
 }
